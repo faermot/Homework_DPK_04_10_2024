@@ -461,7 +461,6 @@ namespace ConsoleApp10
                 }
             }
 
-
             Console.WriteLine($"\nСумма нечётных элементов: {sum}");
 
             for (int i = 0; i < array.Length; i++)
