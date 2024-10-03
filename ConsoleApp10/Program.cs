@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ConsoleApp10
 {
@@ -32,7 +36,7 @@ namespace ConsoleApp10
 
             Console.WriteLine($"Кол-во чётных элементов: {count}");
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task2()
@@ -76,7 +80,7 @@ namespace ConsoleApp10
             }
 
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task3()
@@ -105,7 +109,7 @@ namespace ConsoleApp10
 
             Console.WriteLine($"\nОтвет: {count}");
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task4()
@@ -142,7 +146,7 @@ namespace ConsoleApp10
             {
                 Console.Write($"{item} ");
             }
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task5()
@@ -158,6 +162,8 @@ namespace ConsoleApp10
                 array[i] = rnd.Next(1, 101);
                 Console.Write($"{array[i]} ");
             }
+
+            Console.WriteLine();
 
             int max = array[0], min = array[0];
             int max_index = 0, min_index = 0;
@@ -180,13 +186,13 @@ namespace ConsoleApp10
             array[max_index] = array[min_index];
             array[min_index] = temp;
 
-            Console.WriteLine("\nИтоговый массив: ");
+            Console.WriteLine("Итоговый массив: ");
             foreach (var item in array)
             {
                 Console.Write($"{item} ");
             }
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task6()
@@ -204,6 +210,8 @@ namespace ConsoleApp10
                 Console.Write($"{array[i]} ");
             }
 
+            Console.WriteLine();
+
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 == 0) a++;
@@ -212,18 +220,18 @@ namespace ConsoleApp10
 
             if (a > b)
             {
-                Console.WriteLine("\nЧётных элементов больше");
+                Console.WriteLine("Чётных элементов больше");
             }
             else if (b > a)
             {
-                Console.WriteLine("\nНечётных элементов больше");
+                Console.WriteLine("Нечётных элементов больше");
             }
             else
             {
-                Console.WriteLine("\nЧётных и нечётных элементов равное количество");
+                Console.WriteLine("Чётных и нечётных элементов равное количество");
             }
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task7()
@@ -241,15 +249,17 @@ namespace ConsoleApp10
                 array[i] = rnd.NextDouble() * 100;
                 Console.Write($"{array[i]}  ");
             }
+
+            Console.WriteLine();
             
             for (int i = 1; i < array.Length; i++)
             {
                 if (array[i] > a) count++;
             }
 
-            Console.WriteLine($"\nКоличество элементов больше первого: {count}");
+            Console.WriteLine($"Количество элементов больше первого: {count}");
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task8()
@@ -265,6 +275,8 @@ namespace ConsoleApp10
                 array[i] = rnd.NextDouble() * 100;
                 Console.Write($"{array[i]} ");
             }
+
+            Console.WriteLine();
             int max_index = 0, min_index = 0;
             for (int i = 1; i < array.Length; i++)
             {
@@ -272,10 +284,10 @@ namespace ConsoleApp10
                 if (array[i] < array[min_index]) min_index = i;
             }
 
-            Console.WriteLine($"\nРасположение(индекс) максимального элемента: {max_index}");
+            Console.WriteLine($"Расположение(индекс) максимального элемента: {max_index}");
             Console.WriteLine($"Расположение(ндекс) минимального элемента: {min_index}");
 
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task9()
@@ -287,7 +299,7 @@ namespace ConsoleApp10
             int[] result = new int[15];
             int sum = 0;
 
-            Console.WriteLine("Массив: ");
+            Console.WriteLine("Исходный массив: ");
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(1, 101);
@@ -295,8 +307,10 @@ namespace ConsoleApp10
                 sum += array[i];
             }
 
+            Console.WriteLine();
+
             int a = sum / array.Length;
-            Console.WriteLine($"\nСреднее арифметическое: {a}");
+            Console.WriteLine($"Среднее арифметическое: {a}");
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -309,43 +323,7 @@ namespace ConsoleApp10
                 Console.Write($"{item} ");
             }
 
-            Console.ReadKey();
-        }
-
-        static void Task10()
-        {
-            Console.WriteLine("Задание 10");
-
-            Random rnd = new Random();
-            int[] array = new int[17];
-            int sum_1 = 0, sum_2 = 0, count = 0, a;
-
-            Console.WriteLine("Массив: ");
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(-50, 51);
-                Console.Write($"{array[i]} ");
-                if (array[i] < 0)
-                {
-                    sum_1 += Math.Abs(array[i]);
-                    count++;
-                }
-            }
-
-            a = count > 0 ? sum_1 / count : 0;
-            Console.WriteLine($"\nСреднее арифметическое модулей отрицательных элементов: {a}");
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (Math.Abs(array[i]) > a)
-                {
-                    sum_2 += array[i];
-                }
-            }
-
-            Console.WriteLine($"Сумма элементов, абсолютное значение которых больше среднего арифметического: {sum_2}");
-
-            Console.ReadKey();
+            Thread.Sleep(3000);
         }
 
         static void Task11()
@@ -359,10 +337,11 @@ namespace ConsoleApp10
             Console.WriteLine("Массив: ");
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = rnd.Next(1, 101);
+                array[i] = rnd.Next(-50, 51);
                 Console.Write($"{array[i]} ");
             }
 
+            Console.WriteLine();
 
             foreach (var item in array)
             {
@@ -373,180 +352,62 @@ namespace ConsoleApp10
                 }
             }
 
-            Console.WriteLine($"\nКоличество чётных положительных элементов: {count}");
+            Console.WriteLine($"Количество чётных положительных элементов: {count}");
             Console.WriteLine($"Сумма чётных положительных элементов: {sum}");
-            Console.ReadKey();
         }
 
-        static void Task12()
-        {
-            Console.WriteLine("Задание 12");
-
-            Random rnd = new Random();
-            double[] array = new double[12];
-
-            Console.WriteLine("Массив: ");
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.NextDouble() * 100;
-                Console.Write($"{array[i]} ");
-            }
-
-            Console.WriteLine();
-
-            Array.Sort(array);
-            Array.Reverse(array);
-
-            Console.WriteLine("Отсортированный массив: ");
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
-
-            double sum = array[0] + array[array.Length - 1];
-            Console.WriteLine($"\nСумма максимального и минимального элементов: {sum}");
-
-            Console.ReadKey();
-        }
-
-        static void Task13()
-        {
-            Console.WriteLine("Задание 13");
-
-            Random rnd = new Random();
-            int[] array = new int[12];
-
-            Console.WriteLine("Массив: ");
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(1, 101);
-                Console.Write($"{array[i]} ");
-            }
-
-            Console.WriteLine();
-
-            Array.Sort(array);
-            Array.Reverse(array);
-
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
 
 
-            int sum = array[0] + array[array.Length - 1];
-            int diff = array[0] - array[array.Length - 1];
-            Console.WriteLine($"\nСумма максимального и минимального элементов: {sum}");
-            Console.WriteLine($"Сумма максимального и минимального элементов: {diff}");
 
-            Console.ReadKey();
-        }
-
-        static void Task14()
-        {
-            Console.WriteLine("Задание 14");
-
-            Random rnd = new Random();
-            int[] array = new int[17];
-            int sum = 0;
-
-            Console.WriteLine("Массив: ");
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnd.Next(-50, 51);
-                Console.Write($"{array[i]} ");
-                if (array[i] % 2 != 0)
-                {
-                    sum += array[i];
-                }
-            }
-
-
-            Console.WriteLine($"\nСумма нечётных элементов: {sum}");
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] % 3 == 0) array[i] = sum;
-            }
-
-            Console.WriteLine("Итоговый массив: ");
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
-
-            Console.WriteLine();
-            Console.ReadKey();
-        }
 
         static void Main(string[] args)
         {
-            while (true) 
+            Console.Write("Выберите задание (1-9 и 11): ");
+            switch (Console.ReadLine())
             {
-                Console.Clear();
-                Console.Write("Выберите задание (1-14): ");
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        Task1();
-                        break;
+                case "1":
+                    Task1();
+                    break;
 
-                    case "2":
-                        Task2();
-                        break;
+                case "2":
+                    Task2();
+                    break;
 
-                    case "3":
-                        Task3();
-                        break;
+                case "3":
+                    Task3();
+                    break;
 
-                    case "4":
-                        Task4();
-                        break;
+                case "4":
+                    Task4();
+                    break;
 
-                    case "5":
-                        Task5();
-                        break;
+                case "5":
+                    Task5();
+                    break;
 
-                    case "6":
-                        Task6();
-                        break;
+                case "6":
+                    Task6();
+                    break;
 
-                    case "7":
-                        Task7();
-                        break;
+                case "7":
+                    Task7();
+                    break;
+                    
+                case "8":
+                    Task8();
+                    break;
 
-                    case "8":
-                        Task8();
-                        break;
+                case "9":
+                    Task9();
+                    break;
 
-                    case "9":
-                        Task9();
-                        break;
+                case "11":
+                    Task11();
+                    break;
 
-                    case "10":
-                        Task10();
-                        break;
-
-                    case "11":
-                        Task11();
-                        break;
-
-                    case "12":
-                        Task12();
-                        break;
-
-                    case "13":
-                        Task13();
-                        break;
-
-                    case "14":
-                        Task14();
-                        break;
-
-                    default:
-                        Console.WriteLine("Выберите корректный вариант!");
-                        break;
-                }
+                default:
+                    Console.WriteLine("Выберите корректный вариант!");
+                    break;
             }
         }
     }
